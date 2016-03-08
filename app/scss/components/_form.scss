@@ -1,0 +1,267 @@
+
+@mixin chevron($direction: -45deg, $color: $base__font-color) {
+  content: "";
+  position: absolute;
+  // z-index: 1;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  transform-origin: center center;
+  transform: rotate($direction);
+  pointer-events: none;
+  top: 50%;
+  right: 1.25em;
+  margin-top: -5px;
+  background: transparent;
+  border: {
+    top: none;
+    right: none;
+    bottom: 2px solid $color;
+    left: 2px solid $color;
+  }
+}
+
+@mixin field-border($border-map, $radius: $base__border-radius) {
+  border-radius: $radius;
+  @each $position, $style in $border-map {
+    border-#{$position}: $style;
+  }
+}
+
+@mixin offset {
+  position: absolute;
+  left: -99999px;
+}
+
+form,
+fieldset,
+legend,
+label,
+input[type="text"],
+select,
+datalist,
+textarea {
+  box-shadow: none;
+  appearance: none;
+  outline: none;
+  border-radius: 0;
+}
+
+.nl__form {
+
+}
+
+
+.nl__fieldset {
+  border:none;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 1.5em;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: $medium__spacing 0;
+  border-top: 2px solid $Sea-green;
+}
+
+label {
+  display: block;
+  font-weight: 400;
+  margin-bottom: $large__spacing;
+}
+
+input,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[list],
+.select select  {
+  @include field-border(map-get($base-border, transparent));
+  display: block;
+  width: 100%;
+  margin-top: $small__spacing;
+  padding: $small__spacing;
+  outline: none;
+  line-height: 2;
+  background-color: fade_out($Silver, 0.7);
+  transition: border 0.2s ease-in, background-color 0.3s ease-out;
+
+  &:invalid {
+    @include field-border(map-get($validation-border, in-fat));
+    position: relative;
+  }
+
+  // &:valid {
+  //   @include field-border(map-get($validation-border, v-fat));
+  // }
+}
+
+
+input#postal-code {
+  width: 50%;
+}
+
+input:focus,
+input[type]:focus,
+select:focus {
+  @include field-border(map-get($base-border, fat));
+  background-color: transparent;
+}
+
+input::placeholder {
+  text-align: right;
+  font-weight: 300;
+  font-style: italic;
+  color: $Gray;
+}
+
+.select {
+  position: relative;
+  display: block;
+  padding: 0;
+  &::after {
+    @include chevron(-45deg);
+  }
+
+  &:focus::after {
+    border-color: $Blue;
+  }
+
+  select {
+    display: block;
+    width: 100%;
+    font-weight: 300;
+    padding: 0.75em;
+    background-image: none;
+  }
+}
+
+.region-select {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  > input {
+    @include offset;
+  }
+
+  > label {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: $small__spacing;
+    margin-bottom: 0;
+
+    .label-text {
+      display: block;
+      text-align: center;
+    }
+
+    .radio-button {
+      margin: 0 auto;
+      border-color: $Gray;
+    }
+
+    .radio-button::after {
+      opacity: 0;
+      transform: scale(0) translate(3px, 3px);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  input:checked + label {
+    .radio-button {
+      border-color: $Blue;
+    }
+    .radio-button::after {
+      opacity: 1;
+      transform: scale(1) translate(3px, 3px);
+    }
+  }
+
+  .country-select {
+    display: none;
+    transform: scale(0);
+    transition: transform 0.3s;
+    // background-color: $Silver;
+
+    input {
+      position: relative;
+      display: block;
+    }
+
+  }
+
+  #north-america:checked ~ .country-select:first-of-type,
+  #europe:checked ~ .country-select:last-of-type {
+    flex: 1;
+    width: 100%;
+    display: block;
+    margin: 3em auto;
+    transform: scale(1);
+    appearance: none;
+
+  }
+}
+
+.snl {
+  display: flex;
+  flex-direction: column;
+
+  > input {
+    @include offset;
+  }
+
+  .select-subject {
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .select-subject::after,
+  .select-subject::before {
+    content: "";
+    position: absolute;
+  }
+
+  .select-subject::before {
+    @include field-border(map-get($base-border, target));
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    background-color: $Silver;
+  }
+
+  .select-subject::after {
+    top: 4px;
+    left: 9px;
+    width: 8px;
+    height: 14px;
+    border-bottom: 2px solid $Blue;
+    border-right: 2px solid $Blue;
+    transform: scale(0) rotate(45deg);
+    transition: transform 0.3s;
+  }
+
+  > input:focus + .select-subject::before {
+    @include field-border(map-get($base-border, fat));
+    background-color: inherit;
+  }
+
+  > input:checked + .select-subject::before {
+    @include field-border(map-get($base-border, fat));
+    background-color: inherit;
+  }
+
+  > input:checked + .select-subject::after {
+    transform: scale(1) rotate(45deg);
+  }
+}

@@ -1,0 +1,25 @@
+body {
+  font-family: $Roboto;
+}
+
+h1, h2, legend {
+  font-family: $Roboto-Slab;
+}
+
+h2, .subheading {
+  font-size: $subheading__font-size;
+  font-weight: 700;
+}
+
+legend, .title {
+  font-size: $title__font-size;
+  font-weight: 700;
+}
+
+p, input, select, datalist, textarea {
+  font-weight: 300;
+}
+
+p, label {
+  line-height: $line-height;
+}

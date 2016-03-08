@@ -2,17 +2,260 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Ralph Simon's Portfolio</title>
+    <title>Register for a Code Review</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet" type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:400,300,700,300italic' rel='stylesheet' type='text/css'>
 
     <link href="css/main.css" rel="stylesheet" type="text/css">
   </head>
 
   <body class="site">
-    <h1>Test</h1>
-    <p>Even with a GUI application at hand there are times when you resort to the command line. We admit we can’t memorize all important Git commands – that’s why we created a nice cheat sheet for Git that we would like to share with you.
-On the front you can find all important commands. On the back you can find our Version Control Best Practices that help you get the most out of version control with Git.</p>
+    <header class="main-header">
+      <h1>The Code Review</h1>
+    </header>
+
+    <main class="main-content">
+      <aside class="call-out">
+        <h2>Signup for our newsletter</h2>
+        <p>Get the latest news on how your code is doing right in your inbox</p>
+      </aside>
+
+      <form action="index.html" method="post" class="nl__form">
+        <fieldset class="nl__fieldset">
+
+          <legend>Contact Information</legend>
+
+          <label for="name">
+            Full Name
+            <input type="text" id="name"  placeholder="Required" name="user_name" required autocomplete="name" data-warning="Please fill in your first and last name">
+          </label>
+
+
+          <label for="email">
+            Email Address
+            <input type="email" id="email" placeholder="Required" name="user_email" required autocomplete="email">
+          </label>
+
+
+          <label for="phone">
+            Phone Number
+            <input type="tel" id="phone" pattern="[0-9]{10}" name="user_phone" autocomplete="tel" title="Since this is a mock subscription form, the only restriction placed on the number is that it's exactly 10 digits">
+          </label>
+
+
+          <label for="address">
+            Street Address
+            <input type="text" id="address" name="street-address" autocomplete="street-address">
+          </label>
+
+
+          <!-- Check out the WHATWG spec for details on autocomplete:
+              https://html.spec.whatwg.org/multipage/forms.html#autofill -->
+          <label for="city">
+            City
+            <input type="text" id="city" name="city" autocomplete="address-level2">
+          </label>
+
+
+          <label for="postal-code">
+            Zip Code
+            <input type="text" id="postal-code" name="postal_code" pattern="[0-9]{4}\s[A-Z]{2}" maxlength="7">
+          </label>
+
+          <label for="states">
+            State
+            <!-- <input list="states" placeholder="Choose a state" name="state"> -->
+            <span class="select">
+              <select id="states">
+                <option value="pick-a-state" disabled selected class="disabled"><span>Choose a state</span></option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">Dist of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>
+            </span>
+          </label>
+
+          <label class="">Which region are you from?</label>
+          <div class="region-select">
+            <input type="radio" id="north-america" value="north-america" name="region">
+            <label for="north-america">
+              <span class="label-text">North America</span>
+              <div class="radio-button">
+              </div>
+            </label>
+            <input type="radio" id="europe" value="europe" name="region">
+            <label for="europe">
+              <span class="label-text">Europe</span>
+              <div class="radio-button">
+              </div>
+            </label>
+
+            <!--
+              Display only the datalist that corresponds with the region chosen in the previous step.
+            -->
+            <div class="country-select">
+              <label>North America
+                <input list="NA" name="countries_north-america">
+              </label>
+              <datalist id="NA">
+                <option value="Antiqua and Barbuda">Antigua and Barbuda</option>
+                <option value="Bahamas">Commonwealth of The Bahamas</option>
+                <option value="Belize">Belize</option>
+                <option value="Canada">Canada</option>
+                <option value="Costa Rica">Republic of Costa Rica</option>
+                <option value="Cuba">Republic Cuba</option>
+                <option value="Dominica">Commonwealth of Dominica</option>
+                <option value="Dominican Republic">Dominican Republic</option>
+                <option value="El Salvador">Republic of El Salvador</option>
+                <option value="Grenada">Grenada</option>
+                <option value="Guatemala">Republic of Guatemala</option>
+                <option value="Haiti">Republic of Haiti</option>
+                <option value="Honduras">Republic of Honduras</option>
+                <option value="Jamaica">Jamaica</option>
+                <option value="Mexico">United Mexican States</option>
+                <option value="Nicaragua">Republic of Nicaragua</option>
+                <option value="Panama">Republic of Panama</option>
+                <option value="Saint Kitts and Nevis">Federation of Saint Kitts and Nevis</option>
+                <option value="Saint Lucia">Saint Lucia</option>
+                <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                <option value="Trinidad and Tobago">Republic of Trinidad and Tobago</option>
+                <option value="United States">United States of America</option>
+              </datalist>
+            </div>
+
+            <div class="country-select">
+              <label>Europe
+                <input list="EU" name="countries_europe">
+              </label>
+              <datalist id="EU">
+                <option value="Austria">Austria</option>
+                <option value="Belgium">Belgium</option>
+                <option value="Bulgaria">Bulgaria</option>
+                <option value="Croatia">Croatia</option>
+                <option value="Cyprus">Cyprus</option>
+                <option value="Czech Republic">Czech Republic</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Estonia">Estonia</option>
+                <option value="Finland">Finland</option>
+                <option value="France">France</option>
+                <option value="Germany">Germany</option>
+                <option value="Greece">Greece</option>
+                <option value="Hungary">Hungary</option>
+                <option value="Ireland">Ireland</option>
+                <option value="Italy">Italy</option>
+                <option value="Latvia">Latvia</option>
+                <option value="Lithuania">Lithuania</option>
+                <option value="Luxembourg">Luxembourg</option>
+                <option value="Malta">Malta</option>
+                <option value="Netherlands">The Netherlands</option>
+                <option value="Poland">Poland</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Romania">Romania</option>
+                <option value="Slovakia">Slovakia</option>
+                <option value="Slovenia">Slovenia</option>
+                <option value="Spain">Spain</option>
+                <option value="Sweden">Sweden</option>
+                <option value="United Kingdom">United Kingdom</option>
+              </datalist>
+            </div>
+          </div>
+
+
+        </fieldset>
+
+        <fieldset class="nl__fieldset">
+
+          <legend>Newsletter</legend>
+
+          <label class="title">Select the newsletter(s) you'd like to receive</label>
+          <div class="snl">
+            <input type="checkbox" id="html_news" value="html_news" name="newsletter">
+            <label for="html_news" class="select-subject">
+              HTML News
+            </label>
+
+            <input type="checkbox" id="css_news" value="css_news" name="newsletter">
+            <label for="css_news" class="select-subject">
+              CSS News
+            </label>
+
+            <input type="checkbox" id="js_news" value="js_news" name="newsletter">
+            <label for="js_news" class="select-subject">
+              JavaScript News
+            </label>
+          </div>
+
+          <label for="frequency">How often would you like to receive your newsletter:
+          </label>
+          <span class="select">
+            <select id="frequency" name="reception_frequency">
+              <option value="daily">Daily</option>
+              <option value="weekly" selected="true">Weekly</option>
+              <option value="monthly">Monthly</option>
+            </select>
+          </span>
+
+          <label class="title">Newsletter Format</label>
+          <input type="radio" id="html" value="html" name="format"><label for="html">HTML</label>
+          <input type="radio" id="plain_text" value="plain_text" name="format"><label for="plain_text">Plain text</label>
+
+          <label for="message">Other topics you'd like to hear about</label>
+          <textarea id="message" name="message"></textarea>
+
+        </fieldset>
+
+        <button type="submit">Sign Up</button>
+      </form>
+    </main>
   </body>
 </html>
