@@ -10,12 +10,12 @@ $circle-radius: 100%;
   }
 
   &::before {
-    @include field-border(map-get($base-border, disabled), $circle-radius);
+    @include field-border(map-get($base-border, transparent), $circle-radius);
     top: 0;
     left: 0;
     width: 25px;
     height: 25px;
-    background-color: $Silver;
+    background-color: $base__disabled;
   }
 
   &::after {

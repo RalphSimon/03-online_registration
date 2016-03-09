@@ -7,6 +7,8 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet" type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:400,300,700,300italic' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
     <link href="css/main.css" rel="stylesheet" type="text/css">
   </head>
@@ -22,32 +24,35 @@
         <p>Get the latest news on how your code is doing right in your inbox</p>
       </aside>
 
-      <form action="index.html" method="post" class="nl__form">
+      <form action="index.html" method="post" autocomplete="on" class="nl__form">
         <fieldset class="nl__fieldset">
 
           <legend>Contact Information</legend>
 
           <label for="name">
             <span class="label-text">Full Name</span>
-            <input type="text" id="name"  placeholder="Required" name="user_name" required autocomplete="name" data-warning="Please fill in your first and last name">
+            <input type="text" id="name"  placeholder="Required" name="user_name" required aria-required="true"  inputmode="latin-name" title="Firstname Lastname" pattern="[a-zA-Z0-9]+\s[a-zA-Z0-9]+" data-warning="Please fill in your first and last name">
+            <span class="warning"><i class="material-icons">warning</i>Format: Firstname Lastname</span>
           </label>
 
 
           <label for="email">
             <span class="label-text">Email Address</span>
-            <input type="email" id="email" placeholder="Required" name="user_email" required autocomplete="email">
+            <input type="email" id="email" placeholder="Required" name="user_email" required aria-required="true" title="firstname.lastname@example.com" >
+            <span class="warning"><i class="material-icons">warning</i>Format: firstname.lastname@example.com</span>
           </label>
 
 
           <label for="phone">
             <span class="label-text">Phone Number</span>
-            <input type="tel" id="phone" pattern="[0-9]{10}" name="user_phone" autocomplete="tel" title="Since this is a mock subscription form, the only restriction placed on the number is that it's exactly 10 digits">
+            <input type="tel" id="phone" pattern="[0-9]{10}" name="user_phone"  title="Since this is a mock subscription form, the only restriction placed on the number is that it's exactly 10 digits">
+            <span class="warning"><i class="material-icons">warning</i>Format: 012346789 (Country codes will be added once you pick the region you live in)</span>
           </label>
 
 
           <label for="address">
             <span class="label-text">Street Address</span>
-            <input type="text" id="address" name="street-address" autocomplete="street-address">
+            <input type="text" id="address" name="street-address">
           </label>
 
 
@@ -55,7 +60,8 @@
               https://html.spec.whatwg.org/multipage/forms.html#autofill -->
           <label for="city">
             <span class="label-text">City</span>
-            <input type="text" id="city" name="city" autocomplete="address-level2">
+            <input type="text" id="city" name="city" pattern="[a-zA-Z]+(\s[a-zA-Z]+)?">
+            <span class="warning"><i class="material-icons">warning</i>Format: Amsterdam, or New York</span>
           </label>
 
           <label for="states">
@@ -63,7 +69,7 @@
             <!-- <input list="states" placeholder="Choose a state" name="state"> -->
             <span class="select">
               <select id="states">
-                <option value="pick-a-state" disabled selected class="disabled"><span>Choose a state</span></option>
+                <option value="pick-a-state" disabled selected class="disabled">Choose a state</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -121,7 +127,8 @@
 
           <label for="postal-code">
             <span class="label-text">Zip Code</span>
-            <input type="text" id="postal-code" name="postal_code" pattern="[0-9]{4}\s[A-Z]{2}" maxlength="7">
+            <input type="text" id="postal-code" name="postal_code" pattern="[0-9]{4}(\s[A-Z]{2})?" maxlength="7">
+            <span class="warning"><i class="material-icons">warning</i>Format: 1234 or 1234 AB</span>
           </label>
 
           <label class="title">Which region are you from?</label>
@@ -226,9 +233,9 @@
 
           <label for="frequency" ><span class="label-text">How often would you like to receive your newsletter:</span>
             <span class="select">
-              <select id="frequency" name="reception_frequency">
+            <select id="frequency" name="reception_frequency">
                 <option value="daily">Daily</option>
-                <option value="weekly" selected="true">Weekly</option>
+                <option value="weekly" selected>Weekly</option>
                 <option value="monthly">Monthly</option>
               </select>
             </span>

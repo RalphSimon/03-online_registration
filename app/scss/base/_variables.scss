@@ -29,10 +29,11 @@ $Teal: #39CCCC;
 $base__font-color: rgba(0,0,0,0.87);
 $secondary__font-color: rgba(0,0,0,0.54);
 $base__border-color: $Blue;
-$base__disabled: $Silver;
+$base__disabled: fade_out($Silver, 0.7);
 $action__color: $Treehouse-green;
+$warning__color: $Red;
 $secondary__border-color: $Navy;
-$disabled__border-color: $base__disabled;
+$disabled__border-color: fade_out($Silver, 0.7);
 $base__background-color: #FFFFFF;
 $header__background-color: $Navy;
 
