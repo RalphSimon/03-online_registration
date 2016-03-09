@@ -1,0 +1,76 @@
+@mixin switch($type) {
+  & {
+    position: relative;
+    padding-left: 40px;
+  }
+
+  &::after, &::before {
+    content: "";
+    position: absolute;
+  }
+
+  @if $type == checkbox {
+    &::before {
+      @include field-border(map-get($base-border, transparent));
+      top: 0;
+      left: 0;
+      width: 25px;
+      height: 25px;
+      background-color: $base__disabled;
+    }
+
+    &::after {
+      top: 4px;
+      left: 9px;
+      width: 8px;
+      height: 14px;
+      border-bottom: 2px solid $Blue;
+      border-right: 3px solid $Blue;
+      transform: scale(0) rotate(45deg);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    input:focus + &::before,
+    input:checked + &::before {
+      @include field-border(map-get($base-border, fat));
+      background-color: inherit;
+    }
+
+    input:checked + &::after {
+      transform: scale(1) rotate(45deg);
+    }
+  } @else if $type == radio-button {
+    &::before {
+      @include field-border(map-get($base-border, transparent), $circle-radius);
+      top: 0;
+      left: 0;
+      width: 25px;
+      height: 25px;
+      background-color: $base__disabled;
+    }
+
+    &::after {
+      top: 5px;
+      left: 5px;
+      width: 15px;
+      height: 15px;
+      border-radius: $circle-radius;
+      background-color: $base__border-color;
+      opacity: 0;
+      transform: scale(0);
+      transition: opacity 0.2s cubic-bezier(.68,.18,.34,1.34), transform 0.3s ease-in-out;
+    }
+
+    input:focus + &::before,
+    input:checked + &::before {
+      border-color: lighten($base__border-color, 0.7);
+      background-color: #FFFFFF;
+    }
+
+
+    input:checked + &::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}

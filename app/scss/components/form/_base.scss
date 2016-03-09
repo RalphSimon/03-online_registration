@@ -71,6 +71,9 @@ label {
   }
 }
 
+input.offset {
+  @include offset;
+}
 
 input::placeholder {
   text-align: right;
@@ -79,9 +82,6 @@ input::placeholder {
   color: $Gray;
 }
 
-input.offset {
-  @include offset;
-}
 
 textarea {
   width: 100%;

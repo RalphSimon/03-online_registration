@@ -1,5 +1,4 @@
 input:focus,
-input[type]:focus,
 select:focus,
 textarea:focus {
   @include field-border(map-get($base-border, fat));

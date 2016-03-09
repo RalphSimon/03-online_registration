@@ -29,7 +29,7 @@ label[for="states"] {
     padding: 0.75em;
   }
 
-  @include media($desktop) {
+  @include media($tablet) {
     width: 75%;
   }
 }
@@ -57,7 +57,6 @@ label[for="states"] {
     display: block;
     margin: 3em auto;
     transform: scale(1);
-    appearance: none;
-
+    // appearance: none;
   }
 }
