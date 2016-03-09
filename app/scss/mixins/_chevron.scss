@@ -1,0 +1,21 @@
+@mixin chevron($direction: -45deg, $color: $base__font-color) {
+  content: "";
+  position: absolute;
+  // z-index: 1;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  transform-origin: center center;
+  transform: rotate($direction);
+  pointer-events: none;
+  top: 50%;
+  right: 1.25em;
+  margin-top: -5px;
+  background: transparent;
+  border: {
+    top: none;
+    right: none;
+    bottom: 2px solid $color;
+    left: 2px solid $color;
+  }
+}

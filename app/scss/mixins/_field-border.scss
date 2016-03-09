@@ -1,0 +1,7 @@
+
+@mixin field-border($border-map, $radius: $base__border-radius) {
+  border-radius: $radius;
+  @each $position, $style in $border-map {
+    border-#{$position}: $style;
+  }
+}

@@ -2,16 +2,16 @@ body {
   font-family: $Roboto;
 }
 
-h1, h2, legend {
+h1, h2, legend, button {
   font-family: $Roboto-Slab;
 }
 
-h2, .subheading {
+h2, .subheading, legend, button {
   font-size: $subheading__font-size;
   font-weight: 700;
 }
 
-legend, .title {
+.title {
   font-size: $title__font-size;
   font-weight: 700;
 }

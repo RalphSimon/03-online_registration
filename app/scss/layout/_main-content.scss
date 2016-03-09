@@ -1,4 +1,10 @@
 .main-content {
   flex: 1;
   padding: 0 1em;
+  max-width: $max-width;
+
+  @include media($tablet) {
+    align-self: center;
+    width: $tablet;
+  }
 }

@@ -1,0 +1,100 @@
+#{$all-inputs} {
+  box-shadow: none;
+  appearance: none;
+  outline: none;
+  border-radius: 0;
+}
+
+.nl__fieldset {
+  border:none;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: $large__spacing;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: $medium__spacing 0;
+  border-top: $medium__border;
+}
+
+label {
+  display: block;
+  font-weight: 400;
+  margin-bottom: $large__spacing;
+
+  @include media($tablet) {
+    display: flex;
+    align-items: center;
+    // background-color: fade_out(violet, 0.7);
+
+    .label-text {
+      width: 20%;
+      margin-right: 5%;
+    }
+  }
+}
+
+#{$base-inputs}  {
+  @include field-border(map-get($base-border, transparent));
+  display: block;
+  width: 100%;
+  margin-top: $small__spacing;
+  padding: $small__spacing;
+  outline: none;
+  line-height: 2;
+  background-color: fade_out($Silver, 0.7);
+  transition: border 0.2s ease-in, background-color 0.3s ease-out;
+
+  &:invalid {
+    @include field-border(map-get($validation-border, in-fat));
+    position: relative;
+  }
+
+  // &:valid {
+  //   @include field-border(map-get($validation-border, v-fat));
+  // }
+
+  @include media($tablet) {
+    margin-top: 0;
+    width: 75%;
+  }
+}
+
+
+input::placeholder {
+  text-align: right;
+  font-weight: 300;
+  font-style: italic;
+  color: $Gray;
+}
+
+input.offset {
+  @include offset;
+}
+
+textarea {
+  width: 100%;
+  min-height: 10em;
+  padding: $small__spacing;
+  border-radius: $base__border-radius;
+  border: none;
+  background-color: $base__disabled;
+}
+
+button,
+.button {
+  width: 100%;
+  border-radius: $base__border-radius;
+  border: none;
+  padding: 1em;
+  color: #FFFFFF;
+  background-color: $action__color;
+
+  &:hover, &:focus {
+    background-color: darken($action__color, 10%);
+  }
+}

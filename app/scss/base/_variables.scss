@@ -7,7 +7,7 @@ $Roboto-Slab: "Roboto Slab", "Georgia", serif;
 $base__font-size: 1em;
 $heading__font-size: 2em;
 $subheading__font-size: 1.5em;
-$title__font-size: 1.25em;
+$title__font-size: 1.125em;
 $line-height: 1.5;
 
 
@@ -27,7 +27,14 @@ $Aqua: #7FDBFF;
 $Teal: #39CCCC;
 
 $base__font-color: rgba(0,0,0,0.87);
-$base__border-color: $Gray;
+$secondary__font-color: rgba(0,0,0,0.54);
+$base__border-color: $Blue;
+$base__disabled: $Silver;
+$action__color: $Treehouse-green;
+$secondary__border-color: $Navy;
+$disabled__border-color: $base__disabled;
+$base__background-color: #FFFFFF;
+$header__background-color: $Navy;
 
 
 
@@ -35,6 +42,13 @@ $base__border-color: $Gray;
 //  BORDERS
 //================================================
 
+// BASE BORDER
+$base__border: 1px solid $secondary__border-color;
+$medium__border: 2px solid $secondary__border-color;
+$fat__border: 4px solid $secondary__border-color;
+$disabled__border: 2px solid $disabled__border-color;
+
+// INPUT FIELD BORDERS
 $invalid-thin: 1px solid $Red;
 $invalid-fat: 2px solid $Red;
 $valid-thin: 1px solid $Treehouse-green;
@@ -70,6 +84,12 @@ $base-border: (
     right: $fat__input-border,
     bottom: $fat__input-border,
     left: $fat__input-border
+  ),
+  disabled: (
+    top: $disabled__border,
+    right: $disabled__border,
+    bottom: $disabled__border,
+    left: $disabled__border
   )
 );
 
@@ -100,6 +120,8 @@ $validation-border: (
   )
 );
 
+
+
 //================================================
 //  SPACING
 //================================================
@@ -109,3 +131,33 @@ $mini__spacing: $base__spacing / 4;
 $small__spacing: $base__spacing / 2;
 $medium__spacing: $base__spacing * 1.5;
 $large__spacing: $base__spacing * 2;
+
+
+
+
+//================================================
+//  SELECTORS
+//================================================
+
+$base-inputs: "input, input[type="text"], input[type="email"], input[type="tel"], input[list], .select select";
+
+$all-inputs: "input[type="text"], input[type="email"], input[type="tel"], input[type="radio"], input[type="checkbox"], form, fieldset, legend, label, select, datalist, textarea, button";
+
+
+
+
+//================================================
+//  CUBUC BEZIER CURVES
+//================================================
+
+$bounce: ".68,.18,.34,1.34";
+
+
+
+//================================================
+//  BREAK-POINTS
+//================================================
+
+$tablet: 48em; // 768px
+$desktop: 64em; // 1024px
+$max-width: 56.75em; // 980px

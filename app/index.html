@@ -28,25 +28,25 @@
           <legend>Contact Information</legend>
 
           <label for="name">
-            Full Name
+            <span class="label-text">Full Name</span>
             <input type="text" id="name"  placeholder="Required" name="user_name" required autocomplete="name" data-warning="Please fill in your first and last name">
           </label>
 
 
           <label for="email">
-            Email Address
+            <span class="label-text">Email Address</span>
             <input type="email" id="email" placeholder="Required" name="user_email" required autocomplete="email">
           </label>
 
 
           <label for="phone">
-            Phone Number
+            <span class="label-text">Phone Number</span>
             <input type="tel" id="phone" pattern="[0-9]{10}" name="user_phone" autocomplete="tel" title="Since this is a mock subscription form, the only restriction placed on the number is that it's exactly 10 digits">
           </label>
 
 
           <label for="address">
-            Street Address
+            <span class="label-text">Street Address</span>
             <input type="text" id="address" name="street-address" autocomplete="street-address">
           </label>
 
@@ -54,18 +54,12 @@
           <!-- Check out the WHATWG spec for details on autocomplete:
               https://html.spec.whatwg.org/multipage/forms.html#autofill -->
           <label for="city">
-            City
+            <span class="label-text">City</span>
             <input type="text" id="city" name="city" autocomplete="address-level2">
           </label>
 
-
-          <label for="postal-code">
-            Zip Code
-            <input type="text" id="postal-code" name="postal_code" pattern="[0-9]{4}\s[A-Z]{2}" maxlength="7">
-          </label>
-
           <label for="states">
-            State
+            <span class="label-text">State</span>
             <!-- <input list="states" placeholder="Choose a state" name="state"> -->
             <span class="select">
               <select id="states">
@@ -125,26 +119,21 @@
             </span>
           </label>
 
-          <label class="">Which region are you from?</label>
+          <label for="postal-code">
+            <span class="label-text">Zip Code</span>
+            <input type="text" id="postal-code" name="postal_code" pattern="[0-9]{4}\s[A-Z]{2}" maxlength="7">
+          </label>
+
+          <label class="title">Which region are you from?</label>
           <div class="region-select">
-            <input type="radio" id="north-america" value="north-america" name="region">
-            <label for="north-america">
-              <span class="label-text">North America</span>
-              <div class="radio-button">
-              </div>
-            </label>
-            <input type="radio" id="europe" value="europe" name="region">
-            <label for="europe">
-              <span class="label-text">Europe</span>
-              <div class="radio-button">
-              </div>
-            </label>
+            <input type="radio" id="north-america" value="north-america" name="region" class="offset"><label for="north-america" class="radio-button"><span class="label-text">North America</span></label>
+            <input type="radio" id="europe" value="europe" name="region" class="offset"><label for="europe" class="radio-button"><span class="label-text">Europe</span></label>
 
             <!--
               Display only the datalist that corresponds with the region chosen in the previous step.
             -->
             <div class="country-select">
-              <label>North America
+              <label><span class="label-text">North America</span>
                 <input list="NA" name="countries_north-america">
               </label>
               <datalist id="NA">
@@ -174,7 +163,7 @@
             </div>
 
             <div class="country-select">
-              <label>Europe
+              <label><span class="label-text">Europe</span>
                 <input list="EU" name="countries_europe">
               </label>
               <datalist id="EU">
@@ -219,43 +208,49 @@
 
           <label class="title">Select the newsletter(s) you'd like to receive</label>
           <div class="snl">
-            <input type="checkbox" id="html_news" value="html_news" name="newsletter">
-            <label for="html_news" class="select-subject">
-              HTML News
+            <input type="checkbox" id="html_news" value="html_news" name="newsletter" class="offset">
+            <label for="html_news" class="checkbox">
+              <span class="label-text">HTML News</span>
             </label>
 
-            <input type="checkbox" id="css_news" value="css_news" name="newsletter">
-            <label for="css_news" class="select-subject">
+            <input type="checkbox" id="css_news" value="css_news" name="newsletter" class="offset">
+            <label for="css_news" class="checkbox">
               CSS News
             </label>
 
-            <input type="checkbox" id="js_news" value="js_news" name="newsletter">
-            <label for="js_news" class="select-subject">
-              JavaScript News
+            <input type="checkbox" id="js_news" value="js_news" name="newsletter" class="offset">
+            <label for="js_news" class="checkbox">
+              <span class="label-text">JavaScript News</span>
             </label>
           </div>
 
-          <label for="frequency">How often would you like to receive your newsletter:
+          <label for="frequency" ><span class="label-text">How often would you like to receive your newsletter:</span>
+            <span class="select">
+              <select id="frequency" name="reception_frequency">
+                <option value="daily">Daily</option>
+                <option value="weekly" selected="true">Weekly</option>
+                <option value="monthly">Monthly</option>
+              </select>
+            </span>
           </label>
-          <span class="select">
-            <select id="frequency" name="reception_frequency">
-              <option value="daily">Daily</option>
-              <option value="weekly" selected="true">Weekly</option>
-              <option value="monthly">Monthly</option>
-            </select>
-          </span>
+
 
           <label class="title">Newsletter Format</label>
-          <input type="radio" id="html" value="html" name="format"><label for="html">HTML</label>
-          <input type="radio" id="plain_text" value="plain_text" name="format"><label for="plain_text">Plain text</label>
+          <input type="radio" id="html" value="html" name="format" class="offset"><label for="html" class="radio-button"><span class="label-text">HTML</span></label>
+          <input type="radio" id="plain_text" value="plain_text" name="format" class="offset"><label for="plain_text" class="radio-button"><span class="label-text">Plain text</span></label>
 
-          <label for="message">Other topics you'd like to hear about</label>
+          <label for="message" class="title">Other topics you'd like to hear about:</label>
           <textarea id="message" name="message"></textarea>
 
         </fieldset>
 
         <button type="submit">Sign Up</button>
       </form>
+
     </main>
+
+    <footer class="main-footer">
+      <p class="copyright">Copyright The Code Review</p>
+    </footer>
   </body>
 </html>

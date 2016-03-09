@@ -1,0 +1,50 @@
+$circle-radius: 100%;
+
+.radio-button {
+  position: relative;
+  padding-left: 40px;
+
+  &::after, &::before {
+    content: "";
+    position: absolute;
+  }
+
+  &::before {
+    @include field-border(map-get($base-border, disabled), $circle-radius);
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    background-color: $Silver;
+  }
+
+  &::after {
+    top: 5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: $circle-radius;
+    background-color: $base__border-color;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.2s cubic-bezier(.68,.18,.34,1.34), transform 0.3s ease-in-out;
+  }
+}
+
+input:focus + .radio-button {
+  &::before {
+    border-color: lighten($base__border-color, 0.7);
+  }
+}
+
+input:checked + .radio-button {
+  &::before {
+    border-color: $base__border-color;
+    background-color: #FFFFFF;
+  }
+
+  &::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

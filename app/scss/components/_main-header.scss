@@ -1,6 +1,7 @@
 .main-header {
   width: 100%;
-  background-color: $Treehouse-green;
+  background-color: $header__background-color;
+  padding: $base__spacing 0;
 
   h1 {
     text-align: center;

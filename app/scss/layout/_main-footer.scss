@@ -1,0 +1,10 @@
+.main-footer {
+  width: 100%;
+  padding: 1em;
+
+  .copyright {
+    font-style: italic;
+    text-align: center;
+    color: $secondary__font-color;
+  }
+}

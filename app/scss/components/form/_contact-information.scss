@@ -1,0 +1,63 @@
+input#postal-code {
+  width: 50%;
+
+  @include media($tablet) {
+    width: 25%;
+  }
+}
+
+label[for="states"] {
+  @include media($tablet) {
+    justify-content: flex-start;
+  }
+}
+.select {
+  position: relative;
+  display: block;
+  padding: 0;
+  &::after {
+    @include chevron(-45deg);
+  }
+
+  &:hover::after {
+    border-color: $Blue;
+  }
+
+  select {
+    width: 100%;
+    font-weight: 300;
+    padding: 0.75em;
+  }
+
+  @include media($desktop) {
+    width: 75%;
+  }
+}
+
+.region-select {
+  display: flex;
+  flex-direction: column;
+
+  .country-select {
+    display: none;
+    transform: scale(0);
+    transition: transform 0.3s;
+
+    input {
+      position: relative;
+      display: block;
+    }
+
+  }
+
+  #north-america:checked ~ .country-select:first-of-type,
+  #europe:checked ~ .country-select:last-of-type {
+    flex: 1;
+    width: 100%;
+    display: block;
+    margin: 3em auto;
+    transform: scale(1);
+    appearance: none;
+
+  }
+}
