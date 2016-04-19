@@ -17,6 +17,7 @@
       width: 25px;
       height: 25px;
       background-color: $base__disabled;
+      transition: $border-transition;
     }
 
     &::after {
@@ -25,14 +26,14 @@
       width: 8px;
       height: 14px;
       border-bottom: 2px solid $Blue;
-      border-right: 3px solid $Blue;
+      border-right: 2px solid $Blue;
       transform: scale(0) rotate(45deg);
       transition: transform 0.3s ease-in-out;
     }
 
     input:focus + &::before,
     input:checked + &::before {
-      @include field-border(map-get($base-border, fat));
+      @include field-border(map-get($base-border, thin));
       background-color: inherit;
     }
 
@@ -47,6 +48,7 @@
       width: 25px;
       height: 25px;
       background-color: $base__disabled;
+      transition: $border-transition;
     }
 
     &::after {

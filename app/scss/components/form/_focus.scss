@@ -1,6 +1,6 @@
 input:focus,
 select:focus,
 textarea:focus {
-  @include field-border(map-get($base-border, fat));
+  @include field-border(map-get($base-border, thin));
   background-color: #FFFFFF;
 }

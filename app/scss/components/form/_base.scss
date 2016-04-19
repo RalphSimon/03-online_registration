@@ -3,6 +3,7 @@
   appearance: none;
   outline: none;
   border-radius: 0;
+  transition: border 0.2s ease-in, background-color 0.5s ease-out;
 }
 
 .nl__fieldset {
@@ -32,7 +33,6 @@ label {
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    // background-color: fade_out(violet, 0.7);
 
     .label-text {
       width: 20%;
@@ -46,7 +46,7 @@ label {
 }
 
 #{$base-inputs}  {
-  @include field-border(map-get($base-border, transparent));
+  @include field-border(map-get($base-border, transparent-thin));
   display: block;
   width: 100%;
   margin-top: $small__spacing;
@@ -54,15 +54,14 @@ label {
   outline: none;
   line-height: 2;
   background-color: fade_out($Silver, 0.7);
-  transition: border 0.2s ease-in, background-color 0.5s ease-out;
 
   &:invalid {
-    @include field-border(map-get($validation-border, in-fat));
+    @include field-border(map-get($validation-border, in-thin));
     position: relative;
   }
 
   &:not(:optional):valid {
-    @include field-border(map-get($validation-border, v-fat));
+    @include field-border(map-get($validation-border, v-thin));
   }
 
   @include media($tablet) {
@@ -96,12 +95,14 @@ button,
 .button {
   width: 100%;
   border-radius: $base__border-radius;
-  border: none;
+  border: $valid-thin;
   padding: 1em;
-  color: #FFFFFF;
-  background-color: $action__color;
+  color: $action__color;
+  background-color: transparent;
+  transition: color .2s ease-in, background-color .3s ease-in;
 
   &:hover, &:focus {
+    color: #FFF;
     background-color: darken($action__color, 10%);
   }
 }

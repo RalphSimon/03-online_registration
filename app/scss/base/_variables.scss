@@ -56,6 +56,7 @@ $valid-thin: 1px solid $Treehouse-green;
 $valid-fat: 2px solid $Treehouse-green;
 $base__input-border: 1px solid $Blue;
 $fat__input-border: 2px solid $Blue;
+$transparent__input-border-thin: 1px solid transparent;
 $transparent__input-border: 2px solid transparent;
 
 $base__border-radius: 3px;
@@ -73,6 +74,12 @@ $base-border: (
     right: $transparent__input-border,
     bottom: $transparent__input-border,
     left: $transparent__input-border
+  ),
+  transparent-thin: (
+    top: $transparent__input-border-thin,
+    right: $transparent__input-border-thin,
+    bottom: $transparent__input-border-thin,
+    left: $transparent__input-border-thin
   ),
   thin: (
     top: $base__input-border,
@@ -148,10 +155,10 @@ $all-inputs: "input[type="text"], input[type="email"], input[type="tel"], input[
 
 
 //================================================
-//  CUBUC BEZIER CURVES
+//  TRANSITIONS
 //================================================
 
-$bounce: ".68,.18,.34,1.34";
+$border-transition: border .4s cubic-bezier(.68,.18,.34,1.34);
 
 
 
